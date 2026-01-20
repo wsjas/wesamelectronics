@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>المنتج | Wesam Electronics</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-row">
+      <a class="brand" href="index.html">
+        <div class="logo">W</div>
+        <div>
+          <div class="brand-ar">وسام للإلكترونيات</div>
+          <div class="brand-en">Wesam Electronics</div>
+        </div>
+      </a>
+      <div class="actions">
+        <button id="langBtn" class="btn ghost">AR / EN</button>
+        <a class="btn ghost" href="cart.html">🛒 <span id="cartCount">0</span></a>
+        <a class="btn ghost" href="login.html">👤</a>
+      </div>
+    </div>
+    <div class="container nav-row">
+      <a class="nav-link" href="index.html" data-i18n="home">الرئيسية</a>
+      <a class="nav-link" href="categories.html" data-i18n="categories">الأقسام</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section product-layout">
+      <div class="card">
+        <div class="gallery">
+          <img id="mainImg" class="prod-img big" alt="" />
+          <div id="thumbs" class="thumbs"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="pad">
+          <span id="badge" class="badge"></span>
+          <h1 id="pName" style="margin:10px 0 6px"></h1>
+          <div id="pNameEn" class="muted" style="font-size:13px"></div>
+
+          <div class="price" style="margin-top:12px">
+            <div class="now" id="pPrice"></div>
+            <div class="old" id="pOld" style="display:none"></div>
+          </div>
+
+          <div class="row" style="margin-top:14px">
+            <button class="btn" id="addBtn" style="flex:1" data-i18n="addToCart">أضف للسلة</button>
+            <a class="btn ghost" id="waBtn" style="flex:1;text-align:center" target="_blank">واتساب</a>
+          </div>
+
+          <hr class="hr" />
+          <h3 data-i18n="description">الوصف</h3>
+          <p id="pDesc" class="muted" style="line-height:1.9"></p>
+          <p id="pDescEn" class="muted" style="line-height:1.9;display:none"></p>
+
+          <hr class="hr" />
+          <div class="meta">
+            <div><span class="muted" data-i18n="sku">SKU</span>: <span id="pSku">—</span></div>
+            <div><span class="muted" data-i18n="stock">المخزون</span>: <span id="pStock">—</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2 data-i18n="similar">منتجات مشابهة</h2>
+      </div>
+      <div id="similarGrid" class="grid products"></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="assets/js/firebase-config.js"></script>
+  <script type="module" src="assets/js/i18n.js"></script>
+  <script type="module" src="assets/js/cart.js"></script>
+  <script type="module" src="assets/js/product.js"></script>
+</body>
+</html>

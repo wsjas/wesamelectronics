@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>لوحة الأدمن | Wesam Electronics</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-row">
+      <a class="brand" href="../index.html">
+        <div class="logo">W</div>
+        <div>
+          <div class="brand-ar">لوحة الأدمن</div>
+          <div class="brand-en">Admin Panel</div>
+        </div>
+      </a>
+      <div class="actions">
+        <button id="langBtn" class="btn ghost">AR / EN</button>
+        <button id="logoutBtn" class="btn ghost" data-i18n="logout">تسجيل الخروج</button>
+      </div>
+    </div>
+    <div class="container nav-row">
+      <a class="nav-link" href="#cats" data-i18n="categories">الأقسام</a>
+      <a class="nav-link" href="#prods" data-i18n="products">المنتجات</a>
+      <a class="nav-link" href="#orders" data-i18n="orders">الطلبات</a>
+      <a class="nav-link" href="../index.html" data-i18n="viewStore">عرض المتجر</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="loginCard" class="section">
+      <div class="card"><div class="pad">
+        <h2 style="margin:0 0 10px 0">تسجيل دخول الأدمن</h2>
+        <div class="grid2">
+          <input id="loginEmail" class="input" type="email" placeholder="Email" />
+          <input id="loginPass" class="input" type="password" placeholder="Password" />
+        </div>
+        <div style="display:flex;gap:10px;margin-top:10px;align-items:center">
+          <button class="btn" id="loginBtn">دخول</button>
+          <div class="muted">يجب أن تكون صلاحيات Firestore مناسبة للأدمن</div>
+        </div>
+      </div></div>
+    </section>
+
+    <div id="adminArea" style="display:none">
+
+    <section class="section">
+      <div class="notice" id="authState">—</div>
+    </section>
+
+    <section id="cats" class="section">
+      <div class="section-head">
+        <h2 data-i18n="manageCategories">إدارة الأقسام</h2>
+        <button class="btn" id="newCatBtn" data-i18n="add">إضافة</button>
+      </div>
+      <div class="card"><div class="pad">
+        <div id="catsTable" class="table"></div>
+      </div></div>
+
+      <div id="catModal" class="modal" aria-hidden="true">
+        <div class="modal-card">
+          <div class="modal-head">
+            <div id="catModalTitle" style="font-weight:900">—</div>
+            <button class="btn ghost" id="closeCat">✕</button>
+          </div>
+          <div class="modal-body">
+            <div class="grid2">
+              <input id="catNameAr" class="input" placeholder="اسم القسم عربي" />
+              <input id="catNameEn" class="input" placeholder="Category name (EN)" />
+            </div>
+            <div class="grid2">
+              <input id="catSlug" class="input" placeholder="slug (e.g. remotes)" />
+              <input id="catIcon" class="input" placeholder="icon (e.g. 🎮)" />
+            </div>
+            <div class="grid2">
+              <input id="catOrder" class="input" type="number" placeholder="order" value="1" />
+              <select id="catActive" class="select">
+                <option value="true">active</option>
+                <option value="false">inactive</option>
+              </select>
+            </div>
+            <button id="saveCatBtn" class="btn" style="width:100%" data-i18n="save">حفظ</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="prods" class="section">
+      <div class="section-head">
+        <h2 data-i18n="manageProducts">إدارة المنتجات</h2>
+        <button class="btn" id="newProdBtn" data-i18n="add">إضافة</button>
+      </div>
+
+      <div class="filters">
+        <input id="prodSearch" class="search" type="search" placeholder="بحث بالاسم/sku..." />
+        <select id="prodCatFilter" class="select"><option value="">كل الأقسام</option></select>
+      </div>
+
+      <div class="card"><div class="pad">
+        <div id="prodsTable" class="table"></div>
+      </div></div>
+
+      <div id="prodModal" class="modal" aria-hidden="true">
+        <div class="modal-card wide">
+          <div class="modal-head">
+            <div id="prodModalTitle" style="font-weight:900">—</div>
+            <button class="btn ghost" id="closeProd">✕</button>
+          </div>
+          <div class="modal-body">
+            <div class="grid2">
+              <input id="pNameAr" class="input" placeholder="اسم المنتج عربي" />
+              <input id="pNameEn" class="input" placeholder="Product name (EN)" />
+            </div>
+            <div class="grid3">
+              <input id="pSku" class="input" placeholder="SKU" />
+              <input id="pPrice" class="input" type="number" step="0.01" placeholder="Price JOD" />
+              <input id="pCompare" class="input" type="number" step="0.01" placeholder="Compare-at JOD (optional)" />
+            </div>
+            <div class="grid3">
+              <select id="pCategory" class="select"></select>
+              <input id="pSub" class="input" placeholder="subcategory (optional)" />
+              <input id="pStock" class="input" type="number" placeholder="stock" />
+            </div>
+            <div class="grid2">
+              <input id="pImg1" class="input" placeholder="Image URL #1 (https://...)" />
+              <input id="pImg2" class="input" placeholder="Image URL #2 (optional)" />
+            </div>
+            <textarea id="pDescAr" class="input" rows="3" placeholder="وصف عربي"></textarea>
+            <textarea id="pDescEn" class="input" rows="3" placeholder="Description (EN)"></textarea>
+            <div class="grid2">
+              <select id="pActive" class="select">
+                <option value="true">active</option>
+                <option value="false">inactive</option>
+              </select>
+              <button id="previewImgBtn" class="btn ghost" data-i18n="preview">معاينة الصور</button>
+            </div>
+            <div id="imgPreview" class="thumbs" style="display:none"></div>
+            <button id="saveProdBtn" class="btn" style="width:100%" data-i18n="save">حفظ</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="orders" class="section">
+      <div class="section-head">
+        <h2 data-i18n="orders">الطلبات</h2>
+        <button class="btn ghost" id="refreshOrders" data-i18n="refresh">تحديث</button>
+      </div>
+      <div class="card"><div class="pad">
+        <div id="ordersTable" class="table"></div>
+      </div></div>
+    </section>
+  </div>
+</main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="../assets/js/firebase-config.js"></script>
+  <script type="module" src="../assets/js/i18n.js"></script>
+  <script type="module" src="../assets/js/admin.js"></script>
+</body>
+</html>

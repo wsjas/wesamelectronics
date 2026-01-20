@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>الأقسام | Wesam Electronics</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-row">
+      <a class="brand" href="index.html">
+        <div class="logo">W</div>
+        <div>
+          <div class="brand-ar">وسام للإلكترونيات</div>
+          <div class="brand-en">Wesam Electronics</div>
+        </div>
+      </a>
+      <div class="actions">
+        <button id="langBtn" class="btn ghost">AR / EN</button>
+        <a class="btn ghost" href="cart.html">🛒 <span id="cartCount">0</span></a>
+        <a class="btn ghost" href="login.html">👤</a>
+      </div>
+    </div>
+    <div class="container nav-row">
+      <a class="nav-link" href="index.html" data-i18n="home">الرئيسية</a>
+      <a class="nav-link" href="categories.html" data-i18n="categories">الأقسام</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <div class="section-head">
+        <h1 data-i18n="allCategories">جميع الأقسام</h1>
+        <div class="muted" data-i18n="categoriesHint">اضغط على القسم لعرض المنتجات</div>
+      </div>
+      <div id="categoriesGrid" class="grid categories"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2 data-i18n="products">المنتجات</h2>
+        <div class="muted" id="productsTitle"></div>
+      </div>
+
+      <div class="filters">
+        <input id="searchInput" class="search" type="search" placeholder="ابحث داخل المنتجات..." />
+        <select id="sortSel" class="select">
+          <option value="new" data-i18n="sortNew">الأحدث</option>
+          <option value="priceAsc" data-i18n="sortPriceAsc">السعر: من الأقل</option>
+          <option value="priceDesc" data-i18n="sortPriceDesc">السعر: من الأعلى</option>
+        </select>
+      </div>
+
+      <div id="productsGrid" class="grid products"></div>
+      <div id="emptyState" class="empty" style="display:none" data-i18n="noProducts">لا توجد منتجات</div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="assets/js/firebase-config.js"></script>
+  <script type="module" src="assets/js/i18n.js"></script>
+  <script type="module" src="assets/js/cart.js"></script>
+  <script type="module" src="assets/js/categories.js"></script>
+</body>
+</html>

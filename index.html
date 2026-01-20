@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>وسام للإلكترونيات | Wesam Electronics</title>
+  <meta name="description" content="وسام للإلكترونيات - متجر إلكترونيات: رسيفرات، ريموتات، شواحن، وصلات، كاميرات، قواعد شاشات، قطع إلكترونية وقطع صيانة." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-row">
+      <a class="brand" href="index.html" aria-label="Wesam Electronics">
+        <div class="logo">W</div>
+        <div>
+          <div class="brand-ar">وسام للإلكترونيات</div>
+          <div class="brand-en">Wesam Electronics</div>
+        </div>
+      </a>
+
+      <div class="actions">
+        <button id="langBtn" class="btn ghost" title="Language">AR / EN</button>
+        <a class="btn ghost" href="cart.html">🛒 <span id="cartCount">0</span></a>
+        <a class="btn ghost" href="login.html">👤</a>
+      </div>
+    </div>
+
+    <div class="container search-row">
+      <input id="searchInput" class="search" type="search" placeholder="ابحث عن منتج / موديل / رقم قطعة..." />
+      <button id="searchBtn" class="btn">بحث</button>
+    </div>
+
+    <div class="container nav-row">
+      <a class="nav-link" href="index.html" data-i18n="home">الرئيسية</a>
+      <a class="nav-link" href="categories.html" data-i18n="categories">الأقسام</a>
+      <a class="nav-link" href="#offers" data-i18n="offers">العروض</a>
+      <a class="nav-link" href="#latest" data-i18n="latest">وصل حديثاً</a>
+      <a class="nav-link" href="#contact" data-i18n="contact">تواصل</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1 data-i18n="heroTitle">كل ما تحتاجه من الإلكترونيات في مكان واحد</h1>
+        <p class="muted" data-i18n="heroSub">رسيفرات، ريموتات، شواحن، وصلات، كاميرات، قواعد شاشات، قطع إلكترونية وقطع صيانة.</p>
+        <div class="hero-buttons">
+          <a class="btn" href="categories.html" data-i18n="browseCategories">تصفح الأقسام</a>
+          <a class="btn ghost" href="#offers" data-i18n="viewOffers">مشاهدة العروض</a>
+        </div>
+        <div class="pill-row">
+          <span class="pill" data-i18n="shipWorld">شحن داخل وخارج الأردن</span>
+          <span class="pill" data-i18n="payMethodsShort">الدفع: COD / بطاقات / PayPal</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="stat">
+          <div class="stat-num" id="statProducts">—</div>
+          <div class="stat-label" data-i18n="products">منتج</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">24/7</div>
+          <div class="stat-label" data-i18n="support">دعم</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" id="statCategories">—</div>
+          <div class="stat-label" data-i18n="categories">الأقسام</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2 data-i18n="topCategories">أهم الأقسام</h2>
+        <a class="link" href="categories.html" data-i18n="seeAll">عرض الكل</a>
+      </div>
+      <div id="categoriesGrid" class="grid categories"></div>
+    </section>
+
+    <section id="offers" class="section">
+      <div class="section-head">
+        <h2 data-i18n="offers">العروض</h2>
+        <div class="muted" data-i18n="offersHint">منتجات عليها سعر قبل الخصم</div>
+      </div>
+      <div id="offersGrid" class="grid products"></div>
+    </section>
+
+    <section id="latest" class="section">
+      <div class="section-head">
+        <h2 data-i18n="latest">وصل حديثاً</h2>
+        <div class="muted" data-i18n="latestHint">أحدث المنتجات المضافة</div>
+      </div>
+      <div id="latestGrid" class="grid products"></div>
+    </section>
+
+    <section id="contact" class="section footer">
+      <div class="footer-card">
+        <h3 data-i18n="contact">تواصل</h3>
+        <p class="muted">WhatsApp: <a class="link" href="https://wa.me/962790781206">0790781206</a></p>
+        <p class="muted" data-i18n="payMethods">طرق الدفع: عند الاستلام، بطاقات، PayPal، محافظ، تحويل بنكي</p>
+        <p class="muted">© <span id="year"></span> Wesam Electronics</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="assets/js/firebase-config.js"></script>
+  <script type="module" src="assets/js/i18n.js"></script>
+  <script type="module" src="assets/js/cart.js"></script>
+  <script type="module" src="assets/js/store.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+</body>
+</html>

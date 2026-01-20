@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>السلة | Wesam Electronics</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-row">
+      <a class="brand" href="index.html">
+        <div class="logo">W</div>
+        <div>
+          <div class="brand-ar">وسام للإلكترونيات</div>
+          <div class="brand-en">Wesam Electronics</div>
+        </div>
+      </a>
+      <div class="actions">
+        <button id="langBtn" class="btn ghost">AR / EN</button>
+        <a class="btn ghost" href="cart.html">🛒 <span id="cartCount">0</span></a>
+        <a class="btn ghost" href="login.html">👤</a>
+      </div>
+    </div>
+    <div class="container nav-row">
+      <a class="nav-link" href="index.html" data-i18n="home">الرئيسية</a>
+      <a class="nav-link" href="categories.html" data-i18n="categories">الأقسام</a>
+      <a class="nav-link" href="cart.html" data-i18n="cart">السلة</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <div class="section-head">
+        <h1 data-i18n="cart">السلة</h1>
+        <button class="btn ghost" id="clearBtn" data-i18n="clearCart">تفريغ السلة</button>
+      </div>
+
+      <div class="cart-layout">
+        <div class="card">
+          <div class="pad">
+            <div id="cartItems"></div>
+            <div id="empty" class="empty" style="display:none" data-i18n="cartEmpty">سلتك فارغة</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="pad">
+            <h3 style="margin-top:0" data-i18n="checkout">إتمام الطلب</h3>
+            <div class="summary">
+              <div><span class="muted" data-i18n="subtotal">المجموع</span> <b id="subtotal">0.00 JOD</b></div>
+              <div><span class="muted" data-i18n="shipping">الشحن</span> <b id="shipping">0.00 JOD</b></div>
+              <div class="hr"></div>
+              <div style="font-size:18px"><span class="muted" data-i18n="total">الإجمالي</span> <b id="total">0.00 JOD</b></div>
+            </div>
+
+            <div class="grid2">
+              <input id="name" class="input" placeholder="الاسم" />
+              <input id="phone" class="input" placeholder="رقم الهاتف" />
+            </div>
+            <div class="grid2">
+              <input id="country" class="input" placeholder="الدولة" value="Jordan" />
+              <input id="city" class="input" placeholder="المدينة" />
+            </div>
+            <textarea id="address" class="input" rows="3" placeholder="العنوان بالتفصيل"></textarea>
+
+            <select id="payment" class="select">
+              <option value="COD">الدفع عند الاستلام</option>
+              <option value="CARD">بطاقات Visa/MasterCard</option>
+              <option value="PAYPAL">PayPal</option>
+              <option value="WALLET">محفظة إلكترونية</option>
+              <option value="BANK">تحويل بنكي</option>
+            </select>
+
+            <button id="placeOrderBtn" class="btn" style="width:100%" data-i18n="placeOrder">تأكيد الطلب</button>
+            <p class="muted" style="margin-top:10px;font-size:12px" data-i18n="orderNote">سيتم التواصل معك لتأكيد الطلب والشحن.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="assets/js/firebase-config.js"></script>
+  <script type="module" src="assets/js/i18n.js"></script>
+  <script type="module" src="assets/js/cart.js"></script>
+  <script type="module" src="assets/js/checkout.js"></script>
+</body>
+</html>

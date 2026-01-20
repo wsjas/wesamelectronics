@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>تسجيل الدخول | Wesam Electronics</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-row">
+      <a class="brand" href="index.html">
+        <div class="logo">W</div>
+        <div>
+          <div class="brand-ar">وسام للإلكترونيات</div>
+          <div class="brand-en">Wesam Electronics</div>
+        </div>
+      </a>
+      <div class="actions">
+        <button id="langBtn" class="btn ghost">AR / EN</button>
+        <a class="btn ghost" href="cart.html">🛒 <span id="cartCount">0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section auth">
+      <div class="card">
+        <div class="pad">
+          <h1 style="margin-top:0" data-i18n="login">تسجيل الدخول</h1>
+          <p class="muted" data-i18n="loginHint">هذه الصفحة مخصصة لدخول الأدمن فقط.</p>
+
+          <input id="email" class="input" type="email" placeholder="Email" />
+          <input id="password" class="input" type="password" placeholder="Password" />
+          <button id="loginBtn" class="btn" style="width:100%" data-i18n="login">تسجيل الدخول</button>
+
+          <div class="hr"></div>
+          <a class="btn ghost" style="width:100%;text-align:center" href="admin/index.html" data-i18n="goAdmin">الانتقال لصفحة الأدمن</a>
+
+          <p class="muted" style="font-size:12px;margin-top:12px" data-i18n="loginNote">لن يعمل دخول الأدمن إلا بعد ضبط قواعد Firestore وإنشاء مستخدم أدمن في Firebase Auth.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="assets/js/firebase-config.js"></script>
+  <script type="module" src="assets/js/i18n.js"></script>
+  <script type="module" src="assets/js/cart.js"></script>
+  <script type="module" src="assets/js/auth.js"></script>
+</body>
+</html>
