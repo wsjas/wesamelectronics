@@ -1,7 +1,10 @@
+// 1) افتح Firebase Console > Project settings > Your apps (Web)
+// 2) انسخ config وضعه هنا.
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
-import { getAnalytics, isSupported } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-analytics.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-analytics.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAV84R5Y64uW5sSDrmhMoMYnvQ3VDBp6NE",
@@ -16,13 +19,4 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const auth = getAuth(app);
-
-// ✅ خلي Analytics اختياري حتى لا يوقف تسجيل الدخول
-export let analytics = null;
-try {
-  if (await isSupported()) {
-    analytics = getAnalytics(app);
-  }
-} catch (e) {
-  // ignore analytics errors
-}
+export const analytics = getAnalytics(app);
