@@ -95,3 +95,44 @@ textarea.input{resize:vertical}
   .grid2,.grid3{grid-template-columns:1fr}
   .trow{grid-template-columns:1fr;gap:6px}
 }
+/* Category cards with image */
+.cat-with-img{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.cat-media{
+  width:56px;
+  height:56px;
+  border-radius:14px;
+  overflow:hidden;
+  flex:0 0 56px;
+  background: rgba(0,0,0,0.05);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.cat-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.cat-text{
+  min-width:0;
+}
+
+.cat-title{
+  font-weight:900;
+  line-height:1.2;
+}
+
+.cat-sub{
+  font-size:0.92rem;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
