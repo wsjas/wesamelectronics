@@ -13,13 +13,22 @@ let CURRENT_CAT = '';
 
 function catCard(c){
   const href = `categories.html?cat=${encodeURIComponent(c.slug)}`;
+  const img = (c.image_url || '').trim();
+
   return `
   <a class="card" href="${href}">
-    <div class="pad cat">
-      <div class="ic">${c.icon || '🧩'}</div>
-      <div>
-        <div style="font-weight:900">${c.name_ar || c.slug}</div>
-        <div class="muted">${c.name_en || ''}</div>
+    <div class="pad cat cat-with-img">
+      <div class="cat-media">
+        ${
+          img
+            ? `<img src="${img}" alt="${(c.name_ar||'').replace(/"/g,'')}" loading="lazy">`
+            : `<div class="ic">${c.icon || '🧩'}</div>`
+        }
+      </div>
+
+      <div class="cat-text">
+        <div class="cat-title">${c.name_ar || c.slug}</div>
+        <div class="muted cat-sub">${c.name_en || ''}</div>
       </div>
     </div>
   </a>`;
